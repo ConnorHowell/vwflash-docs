@@ -1,8 +1,8 @@
-title: Just the Docs Template
-description: A starter template for a Jeykll site using the Just the Docs theme!
+title: VW_Flash / MQB Tuning Documentation
+description: Docs on using the open source VW_Flash tool (and other free closed source tools) to tune MQB platform vehicles
 theme: just-the-docs
 
-url: https://just-the-docs.github.io
+url: https://connorhowell.github.io/vwflash-docs
 
 aux_links:
   Template Repository: https://github.com/just-the-docs/just-the-docs-template
