@@ -1,8 +1,8 @@
-title: VW_Flash / MQB Tuning Documentation
+title: VW_Flash / MQB Tuning
 description: Docs on using the open source VW_Flash tool (and other free closed source tools) to tune MQB platform vehicles
 theme: just-the-docs
 
 url: https://connorhowell.github.io/vwflash-docs
 
 aux_links:
-  Template Repository: https://github.com/just-the-docs/just-the-docs-template
+  VW_Flash: https://github.com/bri3d/VW_Flash
