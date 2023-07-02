@@ -68,12 +68,13 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  ruby
   x86_64-darwin-19
   x86_64-linux
 
 DEPENDENCIES
   jekyll (~> 4.3)
-  just-the-docs (= 0.4.0)
+  just-the-docs
 
 BUNDLED WITH
    2.3.9
