@@ -4,6 +4,12 @@ theme: just-the-docs
 
 url: https://connorhowell.github.io/vwflash-docs
 
+gh_edit_link: true
+gh_edit_link_text: "Edit this page on GitHub."
+gh_edit_repository: "https://github.com/ConnorHowell/vwflash-docs"
+gh_edit_branch: "main"
+gh_edit_view_mode: "tree" 
+
 aux_links:
   VW_Flash: https://github.com/bri3d/VW_Flash
 

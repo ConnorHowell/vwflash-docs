@@ -16,7 +16,8 @@ parent: Flashing
 ---
 
 ## Prerequisites
-{: .info} Counterfeit OpenPort cables are not supported and unreliable, and other J2534 interfaces are completely untested.
+{: .info} 
+> Counterfeit OpenPort cables are not supported and unreliable, and other J2534 interfaces are completely untested.
 * Compatible OBD adapter Macchina A0 ([instructions for building a clone](https://github.com/Switchleg1/AMAleg)) or Tactrix OpenPort (genuine).
 * Unlock FRF (`FL_8V0906259H__0001.frf` or `FL_5G0906259Q__0005.frf`)
 * VW_Flash_GUI distribution package from ["Releases"](https://github.com/bri3d/VW_Flash/releases) on GitHub.
@@ -121,11 +122,13 @@ In your Tune folder, you should have a `FL_XX_XX.bin` file *matching your car*, 
 
 <img src="../assets/images/x13.png" width="700" />
 
-{: .info } At this point, your car will not start or run. It is in a patched bootloader, without any software. You now need to install software on it.
+{: .info } 
+> At this point, your car will not start or run. It is in a patched bootloader, without any software. You now need to install software on it.
 
 
 ## Flashing your new software.
-{: .warning } At this point, **do not use the "unlock FRF"**. Attempting to flash this now **WILL** result in a bricked ECU. You have been warned...
+{: .warning } 
+> At this point, **do not use the "unlock FRF"**. Attempting to flash this now **WILL** result in a bricked ECU. You have been warned...
 
 * Pick "Open Folder..." and navigate to your Tune folder.
 * Pick "Full Flash Unlocked (BIN/FRF)".
