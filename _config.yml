@@ -6,3 +6,11 @@ url: https://connorhowell.github.io/vwflash-docs
 
 aux_links:
   VW_Flash: https://github.com/bri3d/VW_Flash
+
+callouts:
+  warning:
+    title: Warning
+    color: red
+  info:
+    title: Info
+    color: blue
