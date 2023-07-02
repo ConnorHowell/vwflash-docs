@@ -3,6 +3,7 @@ layout: default
 title: Flashing
 has_children: true
 permalink: flashing
+nav_order: 2
 ---
 
 # Flashing

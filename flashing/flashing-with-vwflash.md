@@ -2,6 +2,7 @@
 layout: default
 title: Using VW_Flash
 parent: Flashing
+nav_order: 1
 ---
 
 # Flashing Using VW_Flash
@@ -34,7 +35,7 @@ parent: Flashing
 * Open the VW_Flash_GUI application. You should see a command window as well as the application GUI.
 * Open the Interface menu and choose Select Interface.
 
-<img src="../assets/images/select-dialog.png" width="700" alt="Screenshot of Select Interface Dialog" />
+<img src="../assets/images/vwflash/select-dialog.png" width="700" alt="Screenshot of Select Interface Dialog" />
 
 * To use an A0 over serial, pick the interface which reads `Silicon Labs CP210x USB to UART Bridge.`
 * To use an A0 over Bluetooth, check "Scan for BLE devices" in the "Interface" menu, pick the interface which reads `BLE_TO_ISOTP`.
@@ -47,7 +48,7 @@ parent: Flashing
 * Click Get ECU Info.
 * You should now see information in the information area. **If you don't, verify that your A0 has the correct firmware and/or you've selected the right interface.**
 
-<img src="../assets/images/info.png" width="700" alt="Screenshot of ECU Get Info" />
+<img src="../assets/images/vwflash/info.png" width="700" alt="Screenshot of ECU Get Info" />
 
 * The most important things to check for now are the Boot Loader Identification. If the last 3 letters are `SC8`, you have a Simos18.1 ECU. If the last 3 letters are `SCG`, you have a Simos18.10 ECU.
 * Next, check your current VW Spare Part Number and VW Application Software Version Number. Note these for later.
@@ -57,7 +58,7 @@ parent: Flashing
 
 Create a new folder on your PC to store the files you'll be using. Make two folders inside of this one: Unlock and Tune.
 
-<img src="../assets/images/folders.png" width="700" alt="Screenshot of folder" />
+<img src="../assets/images/vwflash/folders.png" width="700" alt="Screenshot of folder" />
 
 First, you need a specific file that VW_Flash will use to unlock your ECU. Please don't get clever and download a different file for this part of the process. Just use the specified file for the Unlock process:
 
@@ -66,7 +67,7 @@ First, you need a specific file that VW_Flash will use to unlock your ECU. Pleas
 
 Put this file in the Unlock folder.
 
-<img src="../assets/images/unlock_folder.png" width="700" alt="Screenshot of Unlock folder" />
+<img src="../assets/images/vwflash/unlock_folder.png" width="700" alt="Screenshot of Unlock folder" />
 
 Simos18 ECUs, like most modern ECUs, do not implement support for reading the flash memory from the ECU over the OBD port. So instead, we need to convert update files from VW's servers (called FRF files) into .BIN files we can use to tune the car.
 
@@ -91,7 +92,7 @@ If you don't have one of these box codes (for example, you are not in the US), y
 
 Open up the Tune folder and you should see the following:
 
-<img src="../assets/images/tune_folder.png" width="700" alt="Screenshot of Tune folder" />
+<img src="../assets/images/vwflash/tune_folder.png" width="700" alt="Screenshot of Tune folder" />
 
 The `FL_xxx_x.bin` file is a "full read" of your ECU, which can be used with file patching and tuning services like VehiCAL.
 The `FD_4.CAL.bin` file is the "calibration" segment of your ECU, which can be used with some tuning tools.
@@ -112,17 +113,17 @@ In your Tune folder, you should have a `FL_XX_XX.bin` file *matching your car*, 
 * Pick Get Info again to make sure your hardware interface is still working.
 * Pick "File > Unlock ECU" and select the FRF file from your unlock folder.
 
-<img src="../assets/images/unlock.png" width="700" />
+<img src="../assets/images/vwflash/unlock.png" width="700" />
 
 * Click "Unlock ECU."
 * Wait a long time. You should see continuous progress updates as the process proceeds.
 * When the process is complete, you should see Finalizing... and then DONE messages in the information box.
 
-<img src="../assets/images/unlock_done.png" width="700" />
+<img src="../assets/images/vwflash/unlock_done.png" width="700" />
 
 * Now click Get Ecu Info again. Check the VW Hardware Number. It should have changed to X13. If it did, congratulations. Your ECU is now in a Sample Mode bootloader and ready to take new software.
 
-<img src="../assets/images/x13.png" width="700" />
+<img src="../assets/images/vwflash/x13.png" width="700" />
 
 {: .info } 
 > At this point, your car will not start or run. It is in a patched bootloader, without any software. You now need to install software on it.
@@ -138,7 +139,7 @@ In your Tune folder, you should have a `FL_XX_XX.bin` file *matching your car*, 
 * Pick the `FL_XX_XX.bin` file ***matching your car***. This example is for a US Golf R which originally had 8V0906259H__0002 on it, so I picked 8V0902659K__0003 as an update. It is critical that you make sure that this BIN either matches your car's software version, or is compatible per the matrix above.
 * Pick Flash.
 
-<img src="../assets/images/selectbin.png" width="700" />
+<img src="../assets/images/vwflash/selectbin.png" width="700" />
 
 * Wait a little less time than you had to last time. When the process is complete, you should see Finalizing... and then DONE messages in the information box.
 * Now click Get Ecu Info again. Check the VW Spare Part Number. It should have changed to the box code you selected for flashing.
