@@ -16,6 +16,7 @@ parent: Flashing
 ---
 
 ## Prerequisites
+{: .info} Counterfeit OpenPort cables are not supported and unreliable, and other J2534 interfaces are completely untested.
 * Compatible OBD adapter Macchina A0 ([instructions for building a clone](https://github.com/Switchleg1/AMAleg)) or Tactrix OpenPort (genuine).
 * Unlock FRF (`FL_8V0906259H__0001.frf` or `FL_5G0906259Q__0005.frf`)
 * VW_Flash_GUI distribution package from ["Releases"](https://github.com/bri3d/VW_Flash/releases) on GitHub.
@@ -41,7 +42,7 @@ parent: Flashing
 
 * It's time to get in the car. Turn the ignition on without starting the engine. Make sure a key is in range. On 2020 model year cars, you may also need to open the hood.
 * Click Get ECU Info.
-* You should now see information in the information area. If you don't, verify that your A0 has the correct firmware and/or you've selected the right interface. Counterfeit OpenPort cables are not supported and unreliable, and other J2534 interfaces are completely untested.
+* You should now see information in the information area. **If you don't, verify that your A0 has the correct firmware and/or you've selected the right interface.**
 
 <img src="../assets/images/info.png" width="700" alt="Screenshot of ECU Get Info" />
 
@@ -89,9 +90,11 @@ Open up the Tune folder and you should see the following:
 
 <img src="../assets/images/tune_folder.png" width="700" alt="Screenshot of Tune folder" />
 
-The FL_xxx_x.bin file is a "full read" of your ECU, which can be used with file patching and tuning services like VehiCAL.
-The FD_4.CAL.bin file is the "calibration" segment of your ECU, which can be used with some tuning tools.
+The `FL_xxx_x.bin` file is a "full read" of your ECU, which can be used with file patching and tuning services like VehiCAL.
+The `FD_4.CAL.bin` file is the "calibration" segment of your ECU, which can be used with some tuning tools.
 The other .bin files are other segments of your ECU, for advanced tuning use.
+
+Typically for most use cases you will be using the `FL_xxx_x.bin` for tuning with a tool like TunerPro.
 
 ## Making sure everything is ready
 
@@ -118,15 +121,15 @@ In your Tune folder, you should have a `FL_XX_XX.bin` file *matching your car*, 
 
 <img src="../assets/images/x13.png" width="700" />
 
-{: .info }
-At this point, your car will not start or run. It is in a patched bootloader, without any software. You now need to install software on it.
+{: .info } At this point, your car will not start or run. It is in a patched bootloader, without any software. You now need to install software on it.
 
 
 ## Flashing your new software.
+{: .warning } At this point, **do not use the "unlock FRF"**. Attempting to flash this now **WILL** result in a bricked ECU. You have been warned...
 
 * Pick "Open Folder..." and navigate to your Tune folder.
 * Pick "Full Flash Unlocked (BIN/FRF)".
-* Pick the `FL_XX_XX.bin` file *matching your car*. This example is for a US Golf R which originally had 8V0906259H__0002 on it, so I picked 8V0902659K__0003 as an update. It is critical that you make sure that this BIN either matches your car's software version, or is compatible per the matrix above.
+* Pick the `FL_XX_XX.bin` file ***matching your car***. This example is for a US Golf R which originally had 8V0906259H__0002 on it, so I picked 8V0902659K__0003 as an update. It is critical that you make sure that this BIN either matches your car's software version, or is compatible per the matrix above.
 * Pick Flash.
 
 <img src="../assets/images/selectbin.png" width="700" />
@@ -140,7 +143,7 @@ From here on out, your car will accept unsigned software blocks. You can select 
 
 ## If something goes wrong!
 
-Don't panic. It is almost impossible to brick an ECU using this process. The only way to cause major problems is to flash a file for a car from the wrong country without a matching Power Class, due to a bug in the immobilizer. For most other issues you can imagine, for example, if power is interrupted, the system crashes, or the connection is broken, you can always safely repeat an operation until it works. For example, if your Unlock process is interrupted, simply try again.
+Don't panic. It is almost impossible to brick an ECU using this process. <u>The only way to cause major problems is to flash a file for a car from the wrong country without a matching Power Class, due to a bug in the immobilizer.</u> For most other issues you can imagine, for example, if power is interrupted, the system crashes, or the connection is broken, you can always safely repeat an operation until it works. For example, if your Unlock process is interrupted, simply try again.
 
 The best thing to do if something goes wrong, you've tried repeating the failed operation, and you're desperate, is to have a stock `FL_XXXX_XXX.frf` file available for your car. Simply select Flash Stock (Re-Lock) and pick your stock FRF. Click Flash, and allow the process to complete. Your car will be re-locked but it will run again.
 
